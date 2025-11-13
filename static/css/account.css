@@ -1,0 +1,150 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    margin-top: 20px;
+    background-color: black;
+    font-family: "Funnel Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+}
+
+.container {
+    width: 450px;
+    height: 680px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    color: white;
+    margin: 0 auto;
+    padding: 10px 15px;
+    background: url("../images/fon2.png") no-repeat center center / cover;
+    margin-top: 40px;
+}
+
+.container {
+    animation-name: container-anim;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+
+}
+
+@keyframes container-anim {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(0.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .text {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.container .text h1 {
+    font-size: 50px;
+    font-family: "Funnel Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    text-align: center;
+}
+
+.container .border1 {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    height: 400px;
+    margin: 0 auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: rgba(75, 75, 75, 0.693);
+    padding: 20px 10px;
+    margin-top: 50px;
+}
+
+.container .border1 input {
+    width: 360px;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 15px;
+    padding-left: 15px;
+    font-family: "Funnel Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    color: black;
+}
+
+.container form .border1 .checked {
+    display: flex;
+    position: relative;
+}
+
+.container form .border1 .checked #input1 {
+    width: 360px;
+    height: 35px;
+}
+
+.container form .border1 .checked img {
+    position: absolute;
+    margin-left: 300px;
+    width: 30px;
+    height: 30px;
+    margin-top: 23px;
+}
+
+.container form img {
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+
+}
+
+.container form .border1 button {
+    width: 360px;
+    height: 40px;
+    margin: 0 auto;
+    font-size: 20px;
+    background-color: blue;
+    color: white;
+    font-family: "Funnel Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    transition: color 0.8s;
+    transition: background-color 0.8s;
+    cursor: pointer;
+    margin-top: 100px;
+}
+
+.container form .border1 button:hover{
+    background-color: white;
+    color: blue;    
+    cursor: pointer;
+}
+
+
+.container .paragraf {
+    width: 400px;
+    font-size: 15px;
+    text-align: center;
+    margin: 0 auto;
+    font-family: "Funnel Sans", sans-serif;
+    margin-top: 50px;
+}

@@ -1,0 +1,164 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    margin-top: 50px;
+    background-color: black;
+}
+
+.container {
+    width: 450px;
+    height: 650px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    color: white;
+    margin: 0 auto;
+    padding: 10px 15px;
+    background: url("../images/fon.jpg") no-repeat center center / cover;
+
+}
+
+.container {
+    animation-name: container-anim;
+    animation-duration: 0.9s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+
+}
+
+@keyframes container-anim {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(0.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .center {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container .center h1 {
+    font-size: 50px;
+    font-family: "Funnel Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+}
+
+.container .border {
+    width: 380px;
+    height: 320px;
+    margin: 0 auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: rgba(75, 75, 75, 0.693);
+    padding: 20px 10px;
+}
+
+.container form .border input {
+    width: 360px;
+    height: 40px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    font-size: 15px;
+    padding-left: 15px;
+    font-family: "Funnel Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    color: black;
+}
+
+.container form .border .checked {
+    display: flex;
+    position: relative;
+}
+
+.container form .border .checked #toggle {
+    position: absolute;
+    margin-left: 300px;
+    width: 40px;
+    height: 40px;
+}
+
+
+.container form .border button {
+    width: 360px;
+    height: 40px;
+    margin: 0 auto;
+    font-size: 20px;
+    background-color: blue;
+    color: white;
+    font-family: "Funnel Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    transition: color 0.8s;
+    transition: background-color 0.8s;
+    cursor: pointer;
+}
+
+.container form .border button:hover {
+    background-color: white;
+    color: blue;
+    cursor: pointer;
+}
+
+.container form .border .Sign {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.container form .border .Sign a {
+    color: white;
+    font-size: 18px;
+    font-family: "Funnel Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+}
+.container form img {
+    width: 30px;
+    height: 30px;
+    margin: 20px auto;
+    border-radius: 50%;
+}
+
+.container form .Forgot {
+    width: 380px;
+    height: 50px;
+    margin: 0 auto;
+    background-color: rgba(75, 75, 75, 0.693);
+    font-size: 20px;
+    margin-bottom: 40px;
+    font-family: "Funnel Sans", sans-serif;
+    font-weight: weight;
+}
+
+.container form .Forgot a {
+    color: white;
+}
+
+
+.container .paragraf {
+    width: 350px;
+    font-size: 13px;
+    text-align: center;
+    margin: 0 auto;
+    font-family: "Funnel Sans", sans-serif;
+}

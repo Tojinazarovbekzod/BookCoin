@@ -1,0 +1,48 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&family=Open+Sans:ital,wght@1,300&display=swap"
+        rel="stylesheet">
+        {% load static %}
+    <link rel="icon" href="{% static 'images/new_logo.png'%}">
+    <link rel="stylesheet" href="{%static 'css/account.css'%}">
+    <link rel="stylesheet" href="{%static 'media/accountMedia.css'%}">
+    <title>createAccount</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <form id="registerform" method="post" action="{% url 'blog:signup' %}">
+                {% csrf_token %}
+                <div class="text">
+                    <h1>BookCoin</h1>
+                </div>
+                <div class="border1">
+                    <input id="int1" type="text" placeholder="username" name="username" required>
+                    <input id="int2" type="text" placeholder="surname" name="surname" required>
+                    <input id="int3" type="text" placeholder="email" name="email" required>
+                    <div class="checked">
+                        <input id="input1" placeholder="password" name="password" type="password" required>
+                        <img id="toggle" src="{% static 'images/eye2.png' %}" alt="eye">
+                    </div>
+                    <button type="submit" id="btn1">Sign up</button>
+                </div>
+            </form>
+            <div class="paragraf">
+                <p>By signing up, you agree to BookCoin's Privacy Policy and Terms of Use. © 2025
+                    BookCoin. All rights reserved.</p>
+            </div>
+        </div>
+    </header>
+</body>
+
+
+<script src="{%static 'js/account.js'%}?v=2"></script>
+
+</html>
