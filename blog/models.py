@@ -1,8 +1,9 @@
 from django.db import models
+from django.db.models import Q
 
 class Tag(models.Model):
     name = models.CharField(verbose_name="Tag name",max_length=250)
-    slug = models.SlugField(max_length=250, unique="True")
+    slug = models.SlugField(max_length=250, unique=True)
 
     def __str__(self):
         return str(self.name)  
@@ -40,15 +41,19 @@ class Rating(models.Model):
     
 
 class Users(models.Model):
-    username = models.CharField(max_length=150)
-    surname = models.CharField(max_length=150, default="Unknown")
-    email = models.EmailField(unique=True, null=True, max_length=100, blank=True)
+    username = models.CharField(max_length=150) 
+    surname = models.CharField(max_length=150)  
+    email = models.EmailField(unique=True, blank=True, null=True)
     password = models.CharField(max_length=128)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=["username", "surname"], name="unique_username_surname")
+            models.UniqueConstraint(
+                fields=['username', 'surname'],
+                name='unique_username_and_surname_together'
+            )
         ]
 
     def __str__(self):
-        return self.username
+        return f"{self.username} {self.surname}"

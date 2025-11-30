@@ -1,25 +1,26 @@
 window.addEventListener("load", function () {
-    let int2 = document.getElementById("int2");
+    let input = document.getElementById("password");
     let toggle = document.getElementById("toggle");
 
     toggle.addEventListener("click", () => {
-        if (int2.type === "password") {
-            int2.type = "text";
-            toggle.src = "/static/images/eye2.png";
+        if (input.type === "password") {
+            input.type = "text";
+            toggle.src = "/static/images/view.png";
         } else {
-            int2.type = "password";
-            toggle.src = "/static/images/eye1.png";
+            input.type = "password";
+            toggle.src = "/static/images/invisible.png";
         }
         toggle.style.width = "40px";
         toggle.style.height = "40px";
     });
 
-    document.getElementById("loginForm").addEventListener("submit", async function (e) {
+
+     document.getElementById("loginForm").addEventListener("submit", async function (e) {
         e.preventDefault();
 
         const data = {
-            username: document.getElementById("int1").value,
-            password: document.getElementById("int2").value
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value
         };
 
         try {

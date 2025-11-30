@@ -17,15 +17,13 @@ def login(request):
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
-        print(username, password)
-        try:
-            account = Users.objects.get(username=username)
-            if check_password(password, account.password):
-                return render(request, "main.html", {"user": account})
-            else:
-                return render(request, "index.html", {"error": "Xato parol!"})
-        except Users.DoesNotExist:
-            return render(request, "index.html", {"error": "Foydalanuvchi topilmadi!"})
+
+        account = Users.objects.filter(username=username).first()
+
+        if account and check_password(password, account.password):
+            return render(request, "main.html", {"user": account})
+        else:
+            return render(request, "index.html", {"error": "Username yoki parol noto‘g‘ri!"})
 
     return render(request, "index.html")
 
@@ -37,19 +35,22 @@ def api_login(request):
             username = data.get("username")
             password = data.get("password")
 
-            try:
-                account = Users.objects.get(username=username)
-                if check_password(password, account.password):
-                    return JsonResponse({"success": True, "username": account.username})
-                else:
-                    return JsonResponse({"success": False, "error": "Xato parol!"}, status=400)
-            except Users.DoesNotExist:
-                return JsonResponse({"success": False, "error": "Foydalanuvchi topilmadi!"}, status=404)
+            account = Users.objects.filter(username=username).first()
 
+            if account and check_password(password, account.password):
+                return JsonResponse({"success": True, "username": account.username})
+            else:
+                return JsonResponse({
+                    "success": False,
+                    "error": "Username yoki parol noto'g'ri!"
+                }, status=400)
+
+        except json.JSONDecodeError:
+            return JsonResponse({"success": False, "error": "Noto'g'ri JSON"}, status=400)
         except Exception as e:
-            return JsonResponse({"success": False, "error": str(e)}, status=500)
+            return JsonResponse({"success": False, "error": "Server xatosi"}, status=500)
 
-    return JsonResponse({"success": False, "error": "Faqat POST method ruxsat etilgan"}, status=405)
+    return JsonResponse({"error": "Faqat POST ruxsat etilgan"}, status=405)
 
 
 def signup(request):

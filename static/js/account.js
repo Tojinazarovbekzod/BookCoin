@@ -1,27 +1,27 @@
 window.addEventListener("load", function () {
-    let input1 = document.getElementById("input1");
+    let input = document.getElementById("password");
     let toggle = document.getElementById("toggle");
 
     toggle.addEventListener("click", () => {
-        if (input1.type === "password") {
-            input1.type = "text";
-            toggle.src = "/static/images/eye2.png";
+        if (input.type === "password") {
+            input.type = "text";
+            toggle.src = "/static/images/view.png";
         } else {
-            input1.type = "password";
-            toggle.src = "/static/images/eye1.png";
+            input.type = "password"; 
+            toggle.src = "/static/images/invisible.png";
         }
-        toggle.style.width = "30px";
-        toggle.style.height = "30px";
-    });
+        toggle.style.width = "40px";
+        toggle.style.height = "40px";
 
-    document.getElementById("registerform").addEventListener("submit", async function (e) {
+    });
+    document.getElementById("registerForm").addEventListener("submit", async function (e) {
         e.preventDefault();
 
         const data = {
-            username: document.getElementById("int1").value,
-            surname: document.getElementById("int2").value,
-            email: document.getElementById("int3").value,
-            password: document.getElementById("input1").value
+            username: document.getElementById("username").value,
+            surname: document.getElementById("surname").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value
         };
 
         try {
@@ -44,4 +44,6 @@ window.addEventListener("load", function () {
             console.error(err);
         }
     });
+    
 });
+

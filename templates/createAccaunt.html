@@ -3,46 +3,74 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&family=Open+Sans:ital,wght@1,300&display=swap"
-        rel="stylesheet">
-        {% load static %}
-    <link rel="icon" href="{% static 'images/new_logo.png'%}">
-    <link rel="stylesheet" href="{%static 'css/account.css'%}">
-    <link rel="stylesheet" href="{%static 'media/accountMedia.css'%}">
-    <title>createAccount</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&family=Open+Sans:ital,wght@1,300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{%static 'css/accountMedia.css'%}">
+  <link rel="icon" href="{% static 'images/bookLogotip.jpg'%}">
+  <link rel="stylesheet" href="{%static 'css/account.css'%}?v=2">
+  <title>createAccount</title>
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <form id="registerform" method="post" action="{% url 'blog:signup' %}">
-                {% csrf_token %}
-                <div class="text">
-                    <h1>BookCoin</h1>
-                </div>
-                <div class="border1">
-                    <input id="int1" type="text" placeholder="username" name="username" required>
-                    <input id="int2" type="text" placeholder="surname" name="surname" required>
-                    <input id="int3" type="text" placeholder="email" name="email" required>
-                    <div class="checked">
-                        <input id="input1" placeholder="password" name="password" type="password" required>
-                        <img id="toggle" src="{% static 'images/eye2.png' %}" alt="eye">
-                    </div>
-                    <button type="submit" id="btn1">Sign up</button>
-                </div>
-            </form>
-            <div class="paragraf">
-                <p>By signing up, you agree to BookCoin's Privacy Policy and Terms of Use. © 2025
-                    BookCoin. All rights reserved.</p>
-            </div>
-        </div>
-    </header>
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="https://assets.mixkit.co/videos/50733/50733-720.mp4" type="video/mp4">
+  </video>
+  <div class="bg-overlay"></div>
+
+  <main class="card" role="main" aria-labelledby="signin-title">
+    <div class="brand" aria-hidden="true">
+
+    </div>
+
+    <h1 id="signin-title">Ro'yhatdan o'tish</h1>
+    <p class="lead">Iltimos malumotlaringizni kiriting</p>
+
+    <form method="post" action="{% url 'blog:signup'%}" id="registerForm" class="form">
+      {% csrf_token %}
+      <br>
+      <div>
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" placeholder="Ismingizni kiriting" required>
+      </div>
+
+      <div>
+        <label for="surname">Surname</label>
+        <input id="surname" name="surname" type="text" placeholder="Familiyangizni kiriting" required>
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="text" placeholder="Emailingizni kiriting" required>
+      </div>
+      <div id="checked">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="Parol kiriting"
+          autocomplete="current-password" required>
+        <img id="toggle" src="{% static 'images/invisible.png'%}" alt="">
+      </div>
+      <div class="controls">
+        <label class="switch">
+          <input id="remember" type="checkbox" />
+          <span class="slider"></span>
+          <span class="label-text">Remember me</span>
+        </label>
+
+      </div>
+      <br>
+      <br>
+
+      <button id="submitBtn" class="btn" type="submit">Kirish</button>
+      <div id="msg" class="message" role="status" aria-live="polite"></div>
+
+    </form>
+  </main>
+  <script src="{%static 'js/account.js'%}?v=2"></script>
 </body>
 
 
-<script src="{%static 'js/account.js'%}?v=2"></script>
+
 
 </html>
